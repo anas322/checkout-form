@@ -1,7 +1,7 @@
 <template>
   <header>
     <div class="col-1 logo">
-      <img src="../assets/logo.svg" alt="Nike logo" width="60" height="60" />
+      <img src="../../assets/logo.svg" alt="Nike logo" width="60" height="60" />
     </div>
 
     <ul class="col-2 center">
@@ -14,13 +14,19 @@
     <ul class="col-3 aside">
       <li><i class="fa-solid fa-magnifying-glass"></i></li>
       <li><i class="fa-regular fa-heart"></i></li>
-      <li><i class="fa-solid fa-cart-shopping"></i></li>
+      <li @click="toggleCart"><i class="fa-solid fa-cart-shopping"></i></li>
     </ul>
   </header>
 </template>
 
 <script>
-export default {};
+export default {
+  methods: {
+    toggleCart() {
+      this.$store.commit("toggleNav");
+    },
+  },
+};
 </script>
 
 <style scoped>
@@ -36,7 +42,7 @@ header {
 }
 .col-1 {
   flex: 20%;
-  text-align: center;
+  text-align: start;
 }
 .col-2 {
   flex: 60%;
@@ -70,7 +76,7 @@ header {
 }
 .aside {
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   column-gap: 20px;
   list-style-type: none;
 }

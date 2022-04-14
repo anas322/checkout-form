@@ -134,7 +134,7 @@ export default {
   min-width: 400px;
   background: #fff;
   box-shadow: 24px 24px 49px #c3c3c3, -24px -24px 49px #fdfdfd;
-  transform: translateX(100%);
+  transform: translateX(120%);
   transition: all 0.5s ease-out;
 }
 .cart.active {

@@ -22,6 +22,7 @@
             ></base-button>
           </aside>
         </div>
+
         <div class="block shipping-details">
           <header>
             <p>02</p>
@@ -41,6 +42,7 @@
             <base-button text="Country" :fullWidth="true"></base-button>
           </aside>
         </div>
+
         <div class="block payment-method">
           <header>
             <p>03</p>
@@ -99,6 +101,10 @@
               ></base-button>
             </div>
           </aside>
+        </div>
+
+        <div class="block add-info">
+          <button class="add-details">Add Details</button>
         </div>
       </div>
     </form>
@@ -211,6 +217,19 @@ aside .inputField {
 }
 #payment .group .inputField input[type="date"] {
   font-size: 19px;
+}
+.add-details {
+  border: none;
+  cursor: pointer;
+  font-size: 150%;
+  padding: 22px 50px;
+  border-radius: 5px;
+  color: #fff;
+  background: #eb6424;
+}
+.add-info {
+  display: flex;
+  justify-content: end;
 }
 @media only screen and (max-width: 768px) {
   .block {

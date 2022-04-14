@@ -4,14 +4,19 @@
       <img src="../../assets/logo.svg" alt="Nike logo" width="60" height="60" />
     </div>
 
-    <ul class="col-2 center">
+    <div class="drop-down">
+      <i class="fa-solid fa-bars" @click="toggleMenu"></i>
+    </div>
+
+    <ul class="col-2 center" :class="{ active: isActive }">
       <li>new</li>
       <li>Men</li>
       <li>women</li>
       <li>kids</li>
       <li class="offer">special offers</li>
     </ul>
-    <ul class="col-3 aside">
+
+    <ul class="col-3 aside" :class="{ active: isActive }">
       <li><i class="fa-solid fa-magnifying-glass"></i></li>
       <li><i class="fa-regular fa-heart"></i></li>
       <li @click="toggleCart"><i class="fa-solid fa-cart-shopping"></i></li>
@@ -21,9 +26,18 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isActive: false,
+    };
+  },
   methods: {
     toggleCart() {
       this.$store.commit("toggleNav");
+    },
+    toggleMenu() {
+      this.isActive = !this.isActive;
+      console.log("hey", this.isActive);
     },
   },
 };
@@ -39,6 +53,8 @@ header {
   height: 4rem;
   background: #fff;
   overflow: hidden;
+  position: relative;
+  transition: all 1s;
 }
 .col-1 {
   flex: 20%;
@@ -54,7 +70,7 @@ header {
   list-style-type: none;
   display: flex;
   align-items: center;
-  height: 100%;
+  transition: all 0.5s ease;
 }
 .center li {
   padding: 0 20px;
@@ -65,7 +81,6 @@ header {
   font-size: 130%;
   text-transform: capitalize;
   white-space: nowrap;
-  transition: background 0.5s ease;
 }
 .center li:hover {
   background: #f3f3f3;
@@ -79,31 +94,59 @@ header {
   justify-content: flex-end;
   column-gap: 20px;
   list-style-type: none;
+  transition: all 2s ease;
 }
-.aside li {
-  padding: 10px 10px;
+.aside li i {
+  font-size: 1.4rem;
+  padding: 10px;
 }
 .aside li:hover {
   background: #f3f3f3;
   border-radius: 50%;
   cursor: pointer;
 }
-.icon {
-  display: none;
-  font-size: 150%;
-  margin-right: 10px;
-  width: 10px;
-  height: 10px;
+/* drop-down function */
+.drop-down {
   position: absolute;
-  top: 10px;
-  right: 20px;
-  padding: 10px;
+  top: 15px;
+  right: 25px;
+  display: none;
 }
-
-.icon i:hover {
-  border-radius: 50%;
+.drop-down i {
+  font-size: 2rem;
   cursor: pointer;
-  transition: all 0.6s ease;
-  transform: rotate(90deg);
+}
+@media only screen and (max-width: 850px) {
+  .drop-down {
+    display: initial;
+  }
+  header {
+    flex-direction: column;
+    height: auto;
+    overflow: hidden;
+  }
+  .center {
+    flex-direction: column;
+    margin-bottom: 16px;
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+  }
+  .center.active {
+    height: 70px;
+  }
+  .center.active li {
+    width: 100%;
+    text-align: center;
+  }
+  .aside {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.1s;
+  }
+  .aside.active {
+    max-height: 100px;
+    padding-bottom: 25px;
+  }
 }
 </style>

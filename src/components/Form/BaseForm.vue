@@ -122,6 +122,8 @@ export default {};
 .block {
   display: flex;
   justify-content: space-between;
+
+  column-gap: 1rem;
 }
 .block header {
   flex: 20%;
@@ -130,7 +132,7 @@ export default {};
   flex: 80%;
 }
 
-/* general style */
+/* aside section style */
 
 aside {
   display: flex;
@@ -176,7 +178,10 @@ aside .inputField {
   min-height: 61px;
 }
 #payment .inputField div {
-  padding: 0 30px;
+  padding-left: 30px;
+  display: flex;
+  flex-wrap: nowrap;
+  column-gap: 0.5rem;
 }
 #payment .inputField div i {
   padding-right: 10px;
@@ -206,5 +211,28 @@ aside .inputField {
 }
 #payment .group .inputField input[type="date"] {
   font-size: 19px;
+}
+@media only screen and (max-width: 768px) {
+  .block {
+    flex-flow: column wrap;
+  }
+  .block header {
+    margin-bottom: 2rem;
+  }
+}
+@media only screen and (max-width: 576px) {
+  .payment-method {
+    overflow-x: scroll;
+  }
+  #payment .inputField div i {
+    padding-right: 10px;
+    font-size: 26px;
+  }
+  #payment .inputField div label {
+    font-size: 17px;
+    font-weight: 400;
+    padding-right: 130px;
+    width: 100%;
+  }
 }
 </style>

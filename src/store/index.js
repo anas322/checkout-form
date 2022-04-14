@@ -2,7 +2,7 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    isNavActive: true,
+    isNavActive: false,
   },
   getters: {
     isNavActive(state) {

@@ -125,6 +125,7 @@ export default {
 </script>
 
 <style scoped>
+/* cart style  */
 .cart {
   position: fixed;
   top: 0;
@@ -158,6 +159,8 @@ export default {
   letter-spacing: 2px;
   font-size: 200%;
 }
+
+/* products list style  */
 ul {
   list-style-type: none;
 }
@@ -220,6 +223,7 @@ ul .details .counter button {
   margin: 0 0 1.5rem 2rem;
 }
 
+/* const section style  */
 .cost {
   display: flex;
   flex-flow: column wrap;
